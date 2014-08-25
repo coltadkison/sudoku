@@ -8,7 +8,7 @@ class SudokuBoard(Board):
         self.square_size = square_size
         Board.__init__(self, num_rows, num_cols, default_value)
 
-    #Return one row of a Sudoku board
+    # Return one row of a Sudoku board
     def get_row(self, row):
         return [self.get_square(row, col) for col in range(self.num_cols)]
 
@@ -19,7 +19,7 @@ class SudokuBoard(Board):
 
     #Return one row of a Sudoku board
     def get_col(self, col):
-            return [self.get_square(row, col) for row in range(self.num_rows)]
+        return [self.get_square(row, col) for row in range(self.num_rows)]
 
     #Print one row of a Sudoku board
     def print_col(self, col):
@@ -35,7 +35,8 @@ class SudokuBoard(Board):
 
     def get_sudoku_square(self, row, col):
         real_row, real_col = self.find_corner_sudoku_square(row, col)
-        return [self.get_square(real_row+i, real_col+j) for i in range(self.square_size) for j in range(self.square_size)]
+        return [self.get_square(real_row + i, real_col + j) for i in range(self.square_size) for j in
+                range(self.square_size)]
 
     #Print Sudoku square based on the row, col value of the upper left corner of the Sudoku square
     def print_sudoku_square(self, row, col):

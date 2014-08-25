@@ -30,3 +30,7 @@ class Board():
         def set_square(self, row, col, value):
             self.board[(self.num_rows * row) + col] = value
 
+        #Prints individual board square
+        def print_square(self, row, col):
+            print(self.board.get_square(row, col))
+

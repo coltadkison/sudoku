@@ -47,7 +47,7 @@ class SudokuSolver():
                 return False
             for each in possible_values:
                 self.sudoku_board.set_square(row, col, each)
-                if self.check_board():
+                if self.__check_board():
                     if self.recursive_solver(row, col+1):
                         return True
                 else:

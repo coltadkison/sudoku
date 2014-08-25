@@ -17,7 +17,7 @@ class SudokuSolver():
         square_squares = [each for each in self.sudoku_board.get_sudoku_square(row, col) if each != 0]
         return len(square_squares) == len(set(square_squares))
 
-    def check_board(self):
+    def __check_board(self):
         for i in range(self.sudoku_board.num_rows):
             if not self.__check_row(i):
                 return False

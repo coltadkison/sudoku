@@ -34,12 +34,13 @@ class SudokuBoard(Board):
         return corner_row, corner_col
 
     def get_sudoku_square(self, row, col):
-        return [self.get_square(row+i, col+j) for i in range(self.square_size) for j in range(self.square_size)]
+        real_row, real_col = self.find_corner_sudoku_square(row, col)
+        return [self.get_square(real_row+i, real_col+j) for i in range(self.square_size) for j in range(self.square_size)]
 
     #Print Sudoku square based on the row, col value of the upper left corner of the Sudoku square
     def print_sudoku_square(self, row, col):
         sudoku_square = self.get_sudoku_square(row, col)
         for i in range(self.square_size):
             for j in range(self.square_size):
-                print(sudoku_square[(self.square_size *i) + j], end=' ')
+                print(sudoku_square[(self.square_size * i) + j], end=' ')
             print()

@@ -2,11 +2,11 @@ __author__ = 'Colt'
 
 
 class Board():
-        def __init__(self, rows, cols, default_value):
-            self.num_rows = rows
-            self.num_cols = cols
+        def __init__(self, num_rows, num_cols, default_value):
+            self.num_rows = num_rows
+            self.num_cols = num_cols
             self.default_value = default_value
-            self.board = [None] * rows * cols
+            self.board = [None] * num_rows * num_cols
             self.reset_board()
 
         #Reset all squares in board to default_value

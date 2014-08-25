@@ -13,7 +13,7 @@ class Board():
         def reset_board(self):
             for i in range(self.num_rows):
                 for j in range(self.num_cols):
-                    self.set_square(i, j, self.default_value)
+                    self.set_square(i, j, ','.join((str(i),str(j))))
 
         #Print entire board
         def print_board(self):

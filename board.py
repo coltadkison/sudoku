@@ -13,6 +13,9 @@ class Board():
         def reset_board(self):
             self.board = [self.default_value] * self.num_rows * self.num_cols
 
+        def reset_square(self, row, col):
+            self.set_square(row, col, self.default_value)
+
         #Print entire board
         def print_board(self):
             for row in range(self.num_rows):

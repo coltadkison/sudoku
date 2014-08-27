@@ -16,6 +16,7 @@ from sudoku_solver import SudokuSolver
 #    0, 0, 8, 0, 1, 6, 0, 0, 0
 #]
 
+#Wedsudoku Easy Puzzle 1,044,377,305
 TEST_BOARD = [
     7, 0, 0, 1, 5, 0, 0, 8, 4,
     0, 0, 0, 0, 7, 4, 1, 0, 0,

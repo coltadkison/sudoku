@@ -6,15 +6,15 @@ class SudokuSolver():
         self.sudoku_board = sudoku_board
 
     def __check_row(self, row):
-        row_squares = [each for each in self.sudoku_board.get_row(row) if each != 0]
+        row_squares = [each for each in self.sudoku_board.get_row(row) if each != self.sudoku_board.default_value]
         return len(row_squares) == len(set(row_squares))
 
     def __check_col(self, col):
-        col_squares = [each for each in self.sudoku_board.get_col(col) if each != 0]
+        col_squares = [each for each in self.sudoku_board.get_col(col) if each != self.sudoku_board.default_value]
         return len(col_squares) == len(set(col_squares))
 
     def __check_square(self, row, col):
-        square_squares = [each for each in self.sudoku_board.get_sudoku_square(row, col) if each != 0]
+        square_squares = [each for each in self.sudoku_board.get_sudoku_square(row, col) if each != self.sudoku_board.default_value]
         return len(square_squares) == len(set(square_squares))
 
     def __check_board(self):
@@ -24,7 +24,6 @@ class SudokuSolver():
         for i in range(self.sudoku_board.num_cols):
             if not self.__check_col(i):
                 return False
-        # noinspection PyArgumentList
         for i in range(0, self.sudoku_board.num_rows, self.sudoku_board.square_size):
             for j in range(0, self.sudoku_board.num_cols, self.sudoku_board.square_size):
                 if not self.__check_square(i, j):
@@ -50,9 +49,7 @@ class SudokuSolver():
                 if self.__check_board():
                     if self.recursive_solver(row, col+1):
                         return True
-                else:
-                    continue
-            self.sudoku_board.set_square(row, col, 0)
+            self.sudoku_board.reset_square(row, col)
             return False
 
 

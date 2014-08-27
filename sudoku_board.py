@@ -8,23 +8,9 @@ class SudokuBoard(Board):
         self.square_size = square_size
         Board.__init__(self, num_rows, num_cols, default_value)
 
-    # Return one row of a Sudoku board
-    def get_row(self, row):
-        return [self.get_square(row, col) for col in range(self.num_cols)]
-
-    #Print one row of a Sudoku board
-    def print_row(self, row):
-        for each in self.get_row(row):
-            print(each, end=' ')
-
     #Return one row of a Sudoku board
     def get_col(self, col):
         return [self.get_square(row, col) for row in range(self.num_rows)]
-
-    #Print one row of a Sudoku board
-    def print_col(self, col):
-        for each in self.get_col(col):
-            print(each)
 
     #Finds row, col of the upper left corner of a Sudoku square on a Sudoku board based on
     # the row, col value of a board square

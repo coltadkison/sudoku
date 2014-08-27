@@ -1,4 +1,4 @@
-__author__ = 'Colt'
+__author__ = 'traptInReality'
 
 
 class Board():

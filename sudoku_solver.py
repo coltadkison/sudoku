@@ -1,4 +1,4 @@
-__author__ = 'colt'
+__author__ = 'traptInReality'
 
 
 class SudokuSolver():
@@ -35,7 +35,7 @@ class SudokuSolver():
             return True
         elif col == self.sudoku_board.num_cols:
             return self.recursive_solver(row+1, 0)
-        if self.sudoku_board.get_square(row, col) != 0:
+        elif self.sudoku_board.get_square(row, col) != 0:
             return self.recursive_solver(row, col+1)
         else:
             all_values = set([each for each in range(1, 10)])
@@ -46,9 +46,8 @@ class SudokuSolver():
                 return False
             for each in possible_values:
                 self.sudoku_board.set_square(row, col, each)
-                if self.__check_board():
-                    if self.recursive_solver(row, col+1):
-                        return True
+                if self.__check_board() and self.recursive_solver(row, col+1):
+                    return True
             self.sudoku_board.reset_square(row, col)
             return False
 

@@ -1,4 +1,4 @@
-__author__ = 'Colt'
+__author__ = 'traptInReality'
 
 from sudoku_board import SudokuBoard
 from sudoku_solver import SudokuSolver

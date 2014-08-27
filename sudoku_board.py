@@ -1,4 +1,4 @@
-__author__ = 'colt'
+__author__ = 'traptInReality'
 
 from board import Board
 

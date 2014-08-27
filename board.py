@@ -11,16 +11,19 @@ class Board():
 
         #Reset all squares in board to default_value
         def reset_board(self):
-            for i in range(self.num_rows):
-                for j in range(self.num_cols):
-                    self.set_square(i, j, self.default_value)
+            self.board = self.default_value * self.num_rows * self.num_cols
 
         #Print entire board
         def print_board(self):
             for i in range(self.num_rows):
                 for j in range(self.num_cols):
-                    print(self.board[(self.num_rows * i) + j], end=' ')
+                    print(self.board.get_square(i, j), end=' ')
                 print()
+
+        def print_board2(self):
+            temp = []
+            for i in range(self.num_rows):
+                temp.append([each for each in ])
 
         #Return the value of a single square on the board
         def get_square(self, row, col):
@@ -29,8 +32,4 @@ class Board():
         #Set the value of a single square on the board
         def set_square(self, row, col, value):
             self.board[(self.num_rows * row) + col] = value
-
-        #Prints individual board square
-        def print_square(self, row, col):
-            print(self.board.get_square(row, col))
 

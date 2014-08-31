@@ -1,5 +1,6 @@
 __author__ = 'traptInReality'
 
+from board_square import BoardSquare
 
 class Board():
         def __init__(self, num_rows, num_cols, default_value):
@@ -11,7 +12,9 @@ class Board():
 
         #Reset all squares in board to default_value
         def reset_board(self):
-            self.board = [self.default_value] * self.num_rows * self.num_cols
+            self.board = [BoardSquare(row, col, self.default_value)
+                          for row in range(self.num_rows)
+                          for col in range(self.num_cols)]
 
         def reset_square(self, row, col):
             self.set_square(row, col, self.default_value)

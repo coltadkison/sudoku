@@ -30,7 +30,7 @@ class Board():
 
         #Set the value of a single square on the board
         def set_square(self, row, col, value):
-            self.board[(self.num_rows * row) + col] = value
+            self.board[(self.num_rows * row) + col].set_value(value)
 
         def get_row(self, row):
             return [self.get_square(row, col) for col in range(self.num_cols)]

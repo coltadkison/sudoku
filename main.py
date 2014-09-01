@@ -2,6 +2,7 @@ __author__ = 'traptInReality'
 
 from sudoku_board import SudokuBoard
 from sudoku_solver import SudokuSolver
+from board_square import BoardSquare
 
 # Websudoku Evil Puzzle 9,631,808,478
 # TEST_BOARD = [
@@ -36,8 +37,11 @@ if __name__ == "__main__":
     my_board = SudokuBoard(3, num_rows, num_cols, 0)
     for i in range(my_board.num_rows):
         for j in range(my_board.num_cols):
-            my_board.set_square(i, j, TEST_BOARD[(my_board.num_rows * i) + j])
+            my_board.set_square(i, j, BoardSquare(i, j, TEST_BOARD[(my_board.num_rows * i) + j]))
+
+    my_board.print_board()
+    print()
 
     my_solver = SudokuSolver(my_board)
     my_solver.recursive_solver(0, 0)
-    my_board.print_board()
+    my_solver.sudoku_board.print_board()

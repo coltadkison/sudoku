@@ -37,7 +37,7 @@ if __name__ == "__main__":
     my_board = SudokuBoard(3, num_rows, num_cols, 0)
     for i in range(my_board.num_rows):
         for j in range(my_board.num_cols):
-            my_board.set_square(i, j, BoardSquare(i, j, TEST_BOARD[(my_board.num_rows * i) + j]))
+            my_board.set_square(i, j, TEST_BOARD[(num_rows * i) + j])
 
     my_board.print_board()
     print()

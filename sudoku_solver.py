@@ -6,15 +6,15 @@ class SudokuSolver():
         self.sudoku_board = sudoku_board
 
     def __check_row(self, row):
-        row_squares = [each.get_value() for each in self.sudoku_board.get_row(row) if each.get_value() != self.sudoku_board.default_value]
+        row_squares = [each for each in self.sudoku_board.get_row(row) if each != self.sudoku_board.default_value]
         return len(row_squares) == len(set(row_squares))
 
     def __check_col(self, col):
-        col_squares = [each.get_value() for each in self.sudoku_board.get_col(col) if each.get_value() != self.sudoku_board.default_value]
+        col_squares = [each for each in self.sudoku_board.get_col(col) if each != self.sudoku_board.default_value]
         return len(col_squares) == len(set(col_squares))
 
     def __check_square(self, row, col):
-        square_squares = [each.get_value() for each in self.sudoku_board.get_sudoku_square(row, col) if each.get_value() != self.sudoku_board.default_value]
+        square_squares = [each for each in self.sudoku_board.get_sudoku_square(row, col) if each != self.sudoku_board.default_value]
         return len(square_squares) == len(set(square_squares))
 
     def __check_board(self):
@@ -35,17 +35,17 @@ class SudokuSolver():
             return True
         elif col == self.sudoku_board.num_cols:
             return self.recursive_solver(row+1, 0)
-        elif self.sudoku_board.get_square(row, col).get_value() != 0:
+        elif self.sudoku_board.get_square(row, col) != 0:
             return self.recursive_solver(row, col+1)
         else:
             all_values = set([each for each in range(1, 10)])
-            possible_values = all_values.difference([each.get_value() for each in self.sudoku_board.get_row(row)],
-                                                    [each.get_value() for each in self.sudoku_board.get_col(col)],
-                                                    [each.get_value() for each in self.sudoku_board.get_sudoku_square(row, col)])
+            possible_values = all_values.difference([each for each in self.sudoku_board.get_row(row)],
+                                                    [each for each in self.sudoku_board.get_col(col)],
+                                                    [each for each in self.sudoku_board.get_sudoku_square(row, col)])
             if not possible_values:
                 return False
             for each in possible_values:
-                self.sudoku_board.get_square(row, col).set_value(each)
+                self.sudoku_board.set_square(row, col, each)
                 if self.__check_board() and self.recursive_solver(row, col+1):
                     return True
             self.sudoku_board.reset_square(row, col)

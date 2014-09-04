@@ -1,7 +1,5 @@
 __author__ = 'traptInReality'
 
-from board_square import BoardSquare
-
 class Board():
         def __init__(self, num_rows, num_cols, default_value):
             self.num_rows = num_rows

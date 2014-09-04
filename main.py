@@ -2,7 +2,6 @@ __author__ = 'traptInReality'
 
 from sudoku_board import SudokuBoard
 from sudoku_solver import SudokuSolver
-from board_square import BoardSquare
 
 # Websudoku Evil Puzzle 9,631,808,478
 # TEST_BOARD = [

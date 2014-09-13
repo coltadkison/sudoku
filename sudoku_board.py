@@ -17,5 +17,10 @@ class SudokuBoard(Board):
 
     def get_sudoku_square(self, row, col):
         real_row, real_col = self.find_corner_sudoku_square(row, col)
-        return [self.get_square(real_row + i, real_col + j) for i in range(self.square_size) for j in
-                range(self.square_size)]
+        return [self.get_square(real_row + i, real_col + j)
+                for i in range(self.square_size)
+                for j in range(self.square_size)]
+
+    def get_unsolved_squares(self):
+        return [(row, col) for row in range(self.num_rows) for col in range(self.num_cols)
+                if self.get_square(row, col) == self.default_value]

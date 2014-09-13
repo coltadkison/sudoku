@@ -1,5 +1,6 @@
 __author__ = 'colt'
 
+
 class BoardSquare(object):
     def __init__(self, row, col, value):
         self.row = row
